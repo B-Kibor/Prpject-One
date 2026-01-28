@@ -48,6 +48,7 @@ export default function Layout() {
                 <button
                   onClick={toggleDarkMode}
                   className="p-2 rounded-xl text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700 transition-all duration-200"
+                  title={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
                 >
                   <span className="text-lg">{darkMode ? '☀️' : '🌙'}</span>
                 </button>
