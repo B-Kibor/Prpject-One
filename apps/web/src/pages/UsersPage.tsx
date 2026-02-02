@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useAuthStore } from '../store/authStore';
 
 interface User {
   id: string;
@@ -13,7 +12,6 @@ interface User {
 }
 
 export default function UsersPage() {
-  const { user: currentUser } = useAuthStore();
   
   // Mock users data
   const [users] = useState<User[]>([

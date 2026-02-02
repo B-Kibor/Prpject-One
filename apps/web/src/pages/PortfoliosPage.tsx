@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useAuthStore } from '../store/authStore';
 
 interface Portfolio {
   id: string;
@@ -14,7 +13,6 @@ interface Portfolio {
 }
 
 export default function PortfoliosPage() {
-  const { user } = useAuthStore();
   
   // Mock portfolios data
   const [portfolios] = useState<Portfolio[]>([
