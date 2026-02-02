@@ -1,15 +1,221 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Multi-Tenant SaaS Platform</title>
-    <script type="module" crossorigin src="/assets/index-8ccc6da5.js"></script>
-    <link rel="stylesheet" href="/assets/index-1f64239e.css">
-  </head>
-  <body>
-    <div id="root"></div>
-    
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Pro - Multi-Tenant SaaS Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .glassmorphism {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-slate-50 to-slate-100 min-h-screen">
+    <div id="app">
+        <!-- Navigation -->
+        <nav class="glassmorphism shadow-lg">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="flex justify-between h-16">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-sm">P</span>
+                        </div>
+                        <h1 class="text-xl font-semibold bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent">
+                            Portfolio Pro
+                        </h1>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <button onclick="toggleDarkMode()" class="p-2 rounded-xl text-slate-500 hover:bg-slate-100 transition-all">
+                            🌙
+                        </button>
+                        <div class="text-sm font-medium text-slate-900">Demo User</div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="flex">
+            <!-- Sidebar -->
+            <div class="w-64 glassmorphism shadow-xl min-h-screen">
+                <nav class="mt-8 px-4">
+                    <div class="space-y-2">
+                        <a href="#" onclick="showPage('dashboard')" class="nav-link active flex items-center px-4 py-3 text-sm font-medium rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 text-white">
+                            <span class="mr-3">📊</span>Dashboard
+                        </a>
+                        <a href="#" onclick="showPage('users')" class="nav-link flex items-center px-4 py-3 text-sm font-medium rounded-xl text-slate-600 hover:bg-slate-100">
+                            <span class="mr-3">👥</span>Users
+                        </a>
+                        <a href="#" onclick="showPage('portfolios')" class="nav-link flex items-center px-4 py-3 text-sm font-medium rounded-xl text-slate-600 hover:bg-slate-100">
+                            <span class="mr-3">💼</span>Portfolios
+                        </a>
+                        <a href="#" onclick="showPage('reports')" class="nav-link flex items-center px-4 py-3 text-sm font-medium rounded-xl text-slate-600 hover:bg-slate-100">
+                            <span class="mr-3">📈</span>Reports
+                        </a>
+                    </div>
+                </nav>
+            </div>
+
+            <!-- Content Area -->
+            <div class="flex-1 p-6">
+                <!-- Dashboard Page -->
+                <div id="dashboard" class="page">
+                    <h1 class="text-3xl font-bold text-slate-900 mb-6">Dashboard</h1>
+                    
+                    <!-- Stats Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                        <div class="glassmorphism p-6 rounded-xl">
+                            <h3 class="text-sm font-medium text-slate-500 mb-2">Total Users</h3>
+                            <p class="text-3xl font-bold text-slate-900">1,247</p>
+                            <p class="text-sm text-green-600">+12% from last month</p>
+                        </div>
+                        <div class="glassmorphism p-6 rounded-xl">
+                            <h3 class="text-sm font-medium text-slate-500 mb-2">Active Portfolios</h3>
+                            <p class="text-3xl font-bold text-slate-900">89</p>
+                            <p class="text-sm text-green-600">+5% from last month</p>
+                        </div>
+                        <div class="glassmorphism p-6 rounded-xl">
+                            <h3 class="text-sm font-medium text-slate-500 mb-2">Total Revenue</h3>
+                            <p class="text-3xl font-bold text-slate-900">$54,239</p>
+                            <p class="text-sm text-green-600">+18% from last month</p>
+                        </div>
+                        <div class="glassmorphism p-6 rounded-xl">
+                            <h3 class="text-sm font-medium text-slate-500 mb-2">Growth Rate</h3>
+                            <p class="text-3xl font-bold text-slate-900">23.5%</p>
+                            <p class="text-sm text-green-600">+2.1% from last month</p>
+                        </div>
+                    </div>
+
+                    <!-- Recent Activity -->
+                    <div class="glassmorphism p-6 rounded-xl">
+                        <h2 class="text-xl font-semibold text-slate-900 mb-4">Recent Activity</h2>
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+                                    <span class="text-blue-600">👤</span>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-medium text-slate-900">New user registered</p>
+                                    <p class="text-xs text-slate-500">2 minutes ago</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
+                                    <span class="text-green-600">💼</span>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-medium text-slate-900">Portfolio created</p>
+                                    <p class="text-xs text-slate-500">5 minutes ago</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Users Page -->
+                <div id="users" class="page hidden">
+                    <h1 class="text-3xl font-bold text-slate-900 mb-6">User Management</h1>
+                    <div class="glassmorphism p-6 rounded-xl">
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full">
+                                <thead>
+                                    <tr class="border-b border-slate-200">
+                                        <th class="text-left py-3 px-4 font-medium text-slate-500">Name</th>
+                                        <th class="text-left py-3 px-4 font-medium text-slate-500">Email</th>
+                                        <th class="text-left py-3 px-4 font-medium text-slate-500">Role</th>
+                                        <th class="text-left py-3 px-4 font-medium text-slate-500">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b border-slate-100">
+                                        <td class="py-3 px-4 text-slate-900">John Doe</td>
+                                        <td class="py-3 px-4 text-slate-600">john@example.com</td>
+                                        <td class="py-3 px-4"><span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">Admin</span></td>
+                                        <td class="py-3 px-4"><span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Active</span></td>
+                                    </tr>
+                                    <tr class="border-b border-slate-100">
+                                        <td class="py-3 px-4 text-slate-900">Jane Smith</td>
+                                        <td class="py-3 px-4 text-slate-600">jane@example.com</td>
+                                        <td class="py-3 px-4"><span class="bg-gray-100 text-gray-800 px-2 py-1 rounded-full text-xs">Member</span></td>
+                                        <td class="py-3 px-4"><span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Active</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolios Page -->
+                <div id="portfolios" class="page hidden">
+                    <h1 class="text-3xl font-bold text-slate-900 mb-6">Portfolio Management</h1>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="glassmorphism p-6 rounded-xl">
+                            <h3 class="text-lg font-semibold text-slate-900 mb-2">Growth Portfolio</h3>
+                            <p class="text-2xl font-bold text-green-600 mb-2">$125,000</p>
+                            <p class="text-sm text-slate-600">+8.5% this month</p>
+                        </div>
+                        <div class="glassmorphism p-6 rounded-xl">
+                            <h3 class="text-lg font-semibold text-slate-900 mb-2">Conservative Mix</h3>
+                            <p class="text-2xl font-bold text-green-600 mb-2">$85,000</p>
+                            <p class="text-sm text-slate-600">+4.2% this month</p>
+                        </div>
+                        <div class="glassmorphism p-6 rounded-xl">
+                            <h3 class="text-lg font-semibold text-slate-900 mb-2">Tech Focus</h3>
+                            <p class="text-2xl font-bold text-green-600 mb-2">$200,000</p>
+                            <p class="text-sm text-slate-600">+12.3% this month</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reports Page -->
+                <div id="reports" class="page hidden">
+                    <h1 class="text-3xl font-bold text-slate-900 mb-6">Analytics & Reports</h1>
+                    <div class="glassmorphism p-6 rounded-xl">
+                        <h2 class="text-xl font-semibold text-slate-900 mb-4">Performance Overview</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="bg-gradient-to-r from-blue-500 to-purple-600 p-6 rounded-xl text-white">
+                                <h3 class="text-lg font-medium mb-2">Total Portfolio Value</h3>
+                                <p class="text-3xl font-bold">$2.4M</p>
+                            </div>
+                            <div class="bg-gradient-to-r from-green-500 to-teal-600 p-6 rounded-xl text-white">
+                                <h3 class="text-lg font-medium mb-2">Average Return</h3>
+                                <p class="text-3xl font-bold">+15.7%</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.add('hidden');
+            });
+            
+            // Show selected page
+            document.getElementById(pageId).classList.remove('hidden');
+            
+            // Update navigation
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active', 'bg-gradient-to-r', 'from-blue-500', 'to-purple-500', 'text-white');
+                link.classList.add('text-slate-600', 'hover:bg-slate-100');
+            });
+            
+            event.target.classList.add('active', 'bg-gradient-to-r', 'from-blue-500', 'to-purple-500', 'text-white');
+            event.target.classList.remove('text-slate-600', 'hover:bg-slate-100');
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark');
+            const button = event.target;
+            button.textContent = button.textContent === '🌙' ? '☀️' : '🌙';
+        }
+    </script>
+</body>
 </html>
